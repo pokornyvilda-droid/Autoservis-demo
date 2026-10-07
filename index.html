@@ -4,63 +4,416 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="description" content="J-H Autoservis a pneuservis Olomouc – servis, pneuservis a diagnostika.">
+<meta name="theme-color" content="#08090b">
 <title>J-H Autoservis | Olomouc</title>
+
 <style>
-/* PRO redesign */
-:root{--red:#ef233c;--red2:#ff4d5d;--bg:#080a0d;--panel:#11151b;--line:#252b34;--muted:#aeb5bf}
-body{background:var(--bg);color:#fff}
-header{background:rgba(8,10,13,.82);border-bottom:1px solid rgba(255,255,255,.08)}
-.nav{height:76px}.logo{font-size:22px}
-.hero{position:relative;overflow:hidden;min-height:650px;display:flex;align-items:center;padding:90px 0;background:
-radial-gradient(circle at 78% 28%,rgba(239,35,60,.28),transparent 30%),
-radial-gradient(circle at 95% 85%,rgba(239,35,60,.12),transparent 28%),
-linear-gradient(135deg,#080a0d 0%,#10141a 55%,#080a0d 100%)}
-.hero:before{content:"";position:absolute;width:520px;height:520px;border:1px solid rgba(239,35,60,.2);border-radius:50%;right:-170px;top:-140px;box-shadow:0 0 0 80px rgba(239,35,60,.025),0 0 0 160px rgba(239,35,60,.018)}
-.hero:after{content:"";position:absolute;right:8%;bottom:8%;width:210px;height:110px;border-radius:20px;background:linear-gradient(135deg,rgba(255,255,255,.07),rgba(255,255,255,0));transform:skewX(-18deg);border:1px solid rgba(255,255,255,.08)}
-.hero .wrap{position:relative;z-index:2}
-.eyebrow{display:inline-flex;align-items:center;gap:8px;color:#ff5b68;background:rgba(239,35,60,.1);border:1px solid rgba(239,35,60,.25);padding:7px 11px;border-radius:999px;letter-spacing:1.4px}
-.hero h1{font-size:clamp(48px,8vw,88px);letter-spacing:-3px;margin:18px 0 18px;max-width:850px}
+:root{
+  --red:#ef233c;
+  --red-dark:#c9142b;
+  --bg:#07090c;
+  --panel:#101319;
+  --panel-2:#151922;
+  --text:#f7f7f8;
+  --muted:#a8afb9;
+  --line:rgba(255,255,255,.10);
+  --max:1180px;
+  --radius:22px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  background:var(--bg);
+  color:var(--text);
+  font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+  line-height:1.6;
+}
+body:before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:-1;
+  background:
+    radial-gradient(circle at 85% 5%,rgba(239,35,60,.12),transparent 28%),
+    radial-gradient(circle at 10% 55%,rgba(239,35,60,.06),transparent 25%);
+}
+a{color:inherit;text-decoration:none}
+img{display:block;max-width:100%}
+.container{width:min(var(--max),calc(100% - 40px));margin:auto}
+section{padding:110px 0}
+.section-head{max-width:720px;margin-bottom:42px}
+.kicker{
+  display:inline-flex;align-items:center;gap:9px;
+  color:#ff6272;text-transform:uppercase;letter-spacing:2px;
+  font-size:12px;font-weight:800;margin-bottom:15px;
+}
+.kicker:before{content:"";width:28px;height:2px;background:var(--red)}
+h1,h2,h3,p{margin-top:0}
+h2{font-size:clamp(34px,5vw,58px);line-height:1.04;letter-spacing:-2px;margin-bottom:16px}
+.section-head p{color:var(--muted);font-size:17px}
+
+header{
+  position:sticky;top:0;z-index:50;
+  background:rgba(7,9,12,.78);
+  border-bottom:1px solid var(--line);
+  backdrop-filter:blur(18px);
+}
+.nav{height:78px;display:flex;align-items:center;justify-content:space-between;gap:25px}
+.logo{font-size:21px;font-weight:900;letter-spacing:.5px}
+.logo span{color:var(--red)}
+.navlinks{display:flex;gap:30px;color:#c5cad2;font-size:14px;font-weight:650}
+.navlinks a{transition:.2s}
+.navlinks a:hover{color:#fff}
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:9px;
+  min-height:48px;padding:0 19px;border-radius:12px;
+  background:var(--red);color:#fff;font-weight:850;
+  box-shadow:0 12px 30px rgba(239,35,60,.18);
+  transition:.2s transform,.2s box-shadow,.2s background;
+}
+.btn:hover{transform:translateY(-2px);background:#ff3048;box-shadow:0 16px 36px rgba(239,35,60,.28)}
+.btn.ghost{background:rgba(255,255,255,.045);border:1px solid var(--line);box-shadow:none}
+.btn.ghost:hover{background:rgba(255,255,255,.08)}
+
+.hero{
+  position:relative;min-height:720px;display:flex;align-items:center;overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(7,9,12,.98) 0%,rgba(7,9,12,.82) 45%,rgba(7,9,12,.35) 100%),
+    url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=2200&q=85") center/cover;
+}
+.hero:after{
+  content:"";position:absolute;inset:auto 0 0;height:180px;
+  background:linear-gradient(transparent,var(--bg));
+}
+.hero .container{position:relative;z-index:2}
+.hero-copy{max-width:760px;padding:80px 0}
+.hero-badge{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:8px 12px;border:1px solid rgba(239,35,60,.35);
+  background:rgba(239,35,60,.10);border-radius:999px;
+  color:#ff7885;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;
+}
+.hero h1{font-size:clamp(52px,8vw,94px);line-height:.96;letter-spacing:-4px;margin:22px 0}
 .hero h1 em{font-style:normal;color:var(--red)}
-.hero p{font-size:21px;line-height:1.55;color:#c3c8d0;max-width:680px}
-.actions{margin-top:28px}.btn{transition:.2s transform,.2s box-shadow}.btn:hover{transform:translateY(-2px);box-shadow:0 12px 35px rgba(239,35,60,.3)}
-.stats{margin-top:-48px;position:relative;z-index:3;background:rgba(17,21,27,.9);border:1px solid #303640;border-radius:16px;overflow:hidden;box-shadow:0 20px 60px rgba(0,0,0,.35)}
-.stat{padding:27px}.stat strong{font-size:29px}
-section{padding:90px 0}.section-title{font-size:44px;letter-spacing:-1.5px}
-.cards{gap:18px}.card{position:relative;background:linear-gradient(145deg,#151a21,#0f1217);border:1px solid #2a3039;border-radius:15px;padding:28px;overflow:hidden;transition:.25s transform,.25s border-color}
-.card:before{content:"";position:absolute;left:0;top:0;width:42px;height:3px;background:var(--red)}
-.card:hover{transform:translateY(-5px);border-color:#454c58}
-.card h3{font-size:20px}.card p{font-size:15px}
-.about .card{box-shadow:0 25px 70px rgba(0,0,0,.28)}
-.contact{background:linear-gradient(180deg,#0d1015,#11151b)}
-.contactbox{border-radius:15px;background:#0b0e12}
-footer{border-top:1px solid #20252c}
-.float-call{position:fixed;right:18px;bottom:18px;z-index:20;background:var(--red);width:58px;height:58px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:24px;box-shadow:0 10px 30px rgba(239,35,60,.45)}
-@media(max-width:800px){.hero{min-height:610px;padding:75px 0 90px}.hero h1{letter-spacing:-2px}.hero:before{right:-300px}.stats{margin-top:-35px}.section-title{font-size:36px}}
-</style>
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;background:#0b0d10;color:#f5f5f5;line-height:1.6}
-a{color:inherit;text-decoration:none}.wrap{max-width:1100px;margin:auto;padding:0 22px}
-header{position:sticky;top:0;z-index:10;background:rgba(11,13,16,.94);border-bottom:1px solid #252930;backdrop-filter:blur(10px)}
-.nav{height:72px;display:flex;align-items:center;justify-content:space-between}.logo{font-weight:900;letter-spacing:1px;font-size:21px}.logo span{color:#e21b23}.navlinks{display:flex;gap:25px;font-size:14px;color:#c7c9ce}.navlinks a:hover{color:#fff}
-.btn{display:inline-block;background:#e21b23;color:#fff;padding:13px 20px;border-radius:7px;font-weight:800;box-shadow:0 8px 25px rgba(226,27,35,.2)}.btn:hover{background:#ff252e}.btn.secondary{background:#171a1f;border:1px solid #363a42;box-shadow:none}
-.hero{padding:95px 0 80px;background:radial-gradient(circle at 75% 35%,#2b1113 0,#0b0d10 45%)}.eyebrow{color:#e21b23;font-weight:800;text-transform:uppercase;letter-spacing:2px;font-size:13px}.hero h1{font-size:clamp(42px,7vw,76px);line-height:1.02;margin:14px 0 20px;max-width:800px}.hero p{font-size:20px;color:#b9bdc5;max-width:650px;margin-bottom:30px}.actions{display:flex;gap:12px;flex-wrap:wrap}
-.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:#292c32;border:1px solid #292c32}.stat{background:#111419;padding:24px}.stat strong{display:block;font-size:25px}.stat span{color:#999fa8;font-size:14px}
-section{padding:75px 0}.section-title{font-size:38px;margin:0 0 35px}.cards{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}.card{background:#12151a;border:1px solid #292d35;border-radius:10px;padding:25px}.card h3{margin-top:0}.card p{color:#aeb3bb;font-size:14px}
-.about{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center}.about p{color:#b8bdc5}.check{margin:12px 0;color:#ddd}.check b{color:#e21b23;margin-right:8px}
-.contact{background:#12151a;border-top:1px solid #252930;border-bottom:1px solid #252930}.contactgrid{display:grid;grid-template-columns:1fr 1fr;gap:30px}.contactbox{background:#0b0d10;border:1px solid #292d35;border-radius:10px;padding:28px}.contactbox a{display:block;padding:7px 0;color:#fff}.contactbox small{color:#8e949d}
-footer{padding:30px 0;color:#777d86;font-size:13px}
-@media(max-width:800px){.navlinks{display:none}.hero{padding:70px 0 55px}.cards{grid-template-columns:1fr 1fr}.about,.contactgrid{grid-template-columns:1fr}.stats{grid-template-columns:1fr}.section-title{font-size:31px}}
-@media(max-width:500px){.cards{grid-template-columns:1fr}.hero h1{font-size:45px}}
+.hero p{max-width:650px;color:#d1d5dc;font-size:20px;line-height:1.55}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
+.hero-points{display:flex;gap:20px;flex-wrap:wrap;margin-top:34px;color:#d4d8df;font-size:13px}
+.hero-points span{display:flex;align-items:center;gap:8px}
+.hero-points i{width:7px;height:7px;border-radius:50%;background:var(--red);display:block}
+
+.quick{
+  position:relative;z-index:5;margin-top:-65px;
+}
+.quick-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  border:1px solid var(--line);border-radius:20px;overflow:hidden;
+  background:rgba(16,19,25,.94);box-shadow:0 25px 70px rgba(0,0,0,.35);
+}
+.quick-item{padding:27px 30px;border-right:1px solid var(--line)}
+.quick-item:last-child{border-right:0}
+.quick-item small{display:block;color:#818894;text-transform:uppercase;letter-spacing:1.4px;font-size:10px;font-weight:800;margin-bottom:5px}
+.quick-item strong{font-size:17px}
+.quick-item a:hover{color:#ff6272}
+
+.service-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:17px}
+.service{
+  position:relative;min-height:245px;padding:27px;border:1px solid var(--line);
+  border-radius:var(--radius);background:linear-gradient(145deg,var(--panel-2),#0d1015);
+  overflow:hidden;transition:.25s transform,.25s border-color,.25s box-shadow;
+}
+.service:after{
+  content:"";position:absolute;width:130px;height:130px;right:-55px;bottom:-65px;
+  border-radius:50%;background:rgba(239,35,60,.10);filter:blur(3px);
+}
+.service:hover{transform:translateY(-6px);border-color:rgba(239,35,60,.45);box-shadow:0 25px 60px rgba(0,0,0,.25)}
+.icon{
+  width:48px;height:48px;border-radius:14px;display:grid;place-items:center;
+  background:rgba(239,35,60,.11);border:1px solid rgba(239,35,60,.22);
+  color:#ff6070;font-size:22px;margin-bottom:28px;
+}
+.service h3{font-size:20px;margin-bottom:9px}
+.service p{color:var(--muted);font-size:14px;margin:0}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:70px;align-items:center}
+.feature-image{border-radius:28px;overflow:hidden;border:1px solid var(--line);box-shadow:0 30px 80px rgba(0,0,0,.35)}
+.feature-image img{width:100%;aspect-ratio:1.15;object-fit:cover}
+.feature-copy p{color:var(--muted);font-size:17px}
+.checks{display:grid;gap:12px;margin-top:25px}
+.check{display:flex;gap:12px;align-items:flex-start}
+.check b{display:grid;place-items:center;flex:0 0 24px;height:24px;border-radius:50%;background:rgba(239,35,60,.13);color:#ff6574;font-size:13px}
+.check span{color:#d8dce2}
+
+.gallery{display:grid;grid-template-columns:1.25fr .75fr;gap:15px}
+.gallery img{width:100%;height:100%;object-fit:cover;border-radius:20px;border:1px solid var(--line)}
+.gallery-main{min-height:500px}
+.gallery-side{display:grid;grid-template-rows:1fr 1fr;gap:15px}
+.gallery-side img{min-height:0}
+
+.cta{
+  position:relative;overflow:hidden;border-radius:28px;
+  padding:55px;background:
+    linear-gradient(120deg,rgba(239,35,60,.92),rgba(174,15,37,.90)),
+    url("https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=1600&q=80") center/cover;
+}
+.cta:after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(0,0,0,.25),transparent)}
+.cta>*{position:relative;z-index:2}
+.cta h2{max-width:680px;margin-bottom:12px}
+.cta p{max-width:650px;color:#ffecef}
+.cta .btn{background:#fff;color:#14161a;box-shadow:none}
+.cta .btn:hover{background:#f3f3f3}
+
+.contact-wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:18px}
+.contact-card{
+  padding:34px;border:1px solid var(--line);border-radius:22px;background:var(--panel);
+}
+.contact-card h3{font-size:22px}
+.contact-row{padding:17px 0;border-bottom:1px solid var(--line)}
+.contact-row:last-child{border-bottom:0}
+.contact-row small{display:block;color:#7f8792;text-transform:uppercase;letter-spacing:1.3px;font-size:10px;font-weight:800;margin-bottom:4px}
+.contact-row a{font-size:17px;font-weight:700}
+.contact-row a:hover{color:#ff6171}
+.map{
+  min-height:100%;border-radius:22px;border:1px solid var(--line);
+  background:
+    linear-gradient(rgba(10,12,16,.62),rgba(10,12,16,.80)),
+    url("https://images.unsplash.com/photo-1524666041070-9b8767495e5b?auto=format&fit=crop&w=1400&q=80") center/cover;
+  padding:34px;display:flex;align-items:flex-end;
+}
+.map-box{padding:23px;border-radius:18px;background:rgba(7,9,12,.85);border:1px solid var(--line);backdrop-filter:blur(10px);width:100%}
+.map-box strong{font-size:18px}
+.map-box p{color:#b5bbc4;margin:5px 0 17px;font-size:14px}
+
+footer{padding:35px 0;border-top:1px solid var(--line);color:#727985;font-size:13px}
+.footer-inner{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+
+.float-call{
+  position:fixed;right:18px;bottom:18px;z-index:40;width:58px;height:58px;border-radius:50%;
+  display:grid;place-items:center;background:var(--red);color:#fff;font-size:22px;
+  box-shadow:0 15px 35px rgba(239,35,60,.4);
+}
+
+.reveal{opacity:0;transform:translateY(20px);transition:.65s ease}
+.reveal.visible{opacity:1;transform:none}
+
+@media(max-width:900px){
+  section{padding:80px 0}
+  .navlinks{display:none}
+  .hero{min-height:680px}
+  .service-grid{grid-template-columns:1fr 1fr}
+  .split,.contact-wrap{grid-template-columns:1fr;gap:35px}
+  .gallery{grid-template-columns:1fr}
+  .gallery-main{min-height:360px}
+  .gallery-side{grid-template-columns:1fr 1fr;grid-template-rows:260px}
+  .quick-grid{grid-template-columns:1fr}
+  .quick-item{border-right:0;border-bottom:1px solid var(--line)}
+  .quick-item:last-child{border-bottom:0}
+}
+@media(max-width:560px){
+  .container{width:min(var(--max),calc(100% - 28px))}
+  .nav{height:68px}
+  .nav>.btn{min-height:42px;padding:0 14px;font-size:13px}
+  .hero{min-height:690px;background:
+    linear-gradient(90deg,rgba(7,9,12,.94),rgba(7,9,12,.60)),
+    url("https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?auto=format&fit=crop&w=1400&q=80") center/cover}
+  .hero-copy{padding:60px 0}
+  .hero h1{font-size:50px;letter-spacing:-2.5px}
+  .hero p{font-size:17px}
+  .service-grid{grid-template-columns:1fr}
+  .gallery-side{grid-template-columns:1fr;grid-template-rows:220px 220px}
+  .cta{padding:32px 25px;border-radius:22px}
+  .map{min-height:360px}
+}
 </style>
 </head>
+
 <body>
-<header><div class="wrap nav"><div class="logo">J-H <span>AUTOSERVIS</span></div><nav class="navlinks"><a href="#sluzby">Služby</a><a href="#proc">Proč my</a><a href="#kontakt">Kontakt</a></nav><a class="btn" href="tel:+420721007887">Zavolat</a></div></header>
+<header>
+  <div class="container nav">
+    <a class="logo" href="#">J-H <span>AUTOSERVIS</span></a>
+    <nav class="navlinks" aria-label="Hlavní navigace">
+      <a href="#sluzby">Služby</a>
+      <a href="#proc">Proč my</a>
+      <a href="#galerie">Galerie</a>
+      <a href="#kontakt">Kontakt</a>
+    </nav>
+    <a class="btn" href="tel:+420721007887">☎ Zavolat</a>
+  </div>
+</header>
+
 <main>
-<section class="hero"><div class="wrap"><div class="eyebrow">● Autoservis & pneuservis • Olomouc</div><h1>Váš vůz.<br><em>Naše práce.</em></h1><p>Autoservis a pneuservis v Olomouci. Férový přístup, moderní servis a práce, na kterou se můžete spolehnout.</p><div class="actions"><a class="btn" href="tel:+420721007887">Objednat servis</a><a class="btn secondary" href="#sluzby">Naše služby</a></div></div></section>
-<div class="wrap"><div class="stats"><div class="stat"><strong>4,9 / 5</strong><span>hodnocení zákazníků*</span></div><div class="stat"><strong>Olomouc</strong><span>Hodolany • Tyršova 4</span></div><div class="stat"><strong>Po–Pá</strong><span>objednání po telefonu</span></div></div></div>
-<section id="sluzby"><div class="wrap"><h2 class="section-title">Co pro vás uděláme</h2><div class="cards"><div class="card"><h3>🔧 Autoservis</h3><p>Běžná údržba a opravy osobních automobilů.</p></div><div class="card"><h3>🛞 Pneuservis</h3><p>Pneumatiky, přezutí a servis kol.</p></div><div class="card"><h3>💻 Diagnostika</h3><p>Kontrola a hledání závad pomocí diagnostiky.</p></div><div class="card"><h3>🛠️ Údržba</h3><p>Servisní práce pro bezproblémový provoz vašeho auta.</p></div></div></div></section>
-<section id="proc"><div class="wrap about"><div><div class="eyebrow">Proč J-H Autoservis</div><h2 class="section-title">Bez zbytečných řečí.</h2><p>Potřebujete auto opravit nebo připravit na další kilometry? Domluvte si termín a probereme, co je potřeba udělat.</p><div class="check"><b>✓</b> Osobní přístup</div><div class="check"><b>✓</b> Servis a pneuservis na jednom místě</div><div class="check"><b>✓</b> Olomouc – Hodolany</div></div><div class="card"><div class="eyebrow">Jednoduše</div><h3>Máte problém s autem?</h3><p>Zavolejte a domluvte si termín. Na webu najdete vše důležité na jednom místě.</p><a class="btn" href="tel:+420721007887">+420 721 007 887</a></div></div></section>
-<section id="kontakt" class="contact"><div class="wrap"><h2 class="section-title">Kontakt</h2><div class="contactgrid"><div class="contactbox"><small>Adresa</small><a href="https://www.google.com/maps/search/?api=1&query=Tyr%C5%A1ova%20613%2F4%2C%20Olomouc">Tyršova 613/4<br>779 00 Olomouc – Hodolany</a><small>Telefon</small><a href="tel:+420721007887">+420 721 007 887</a></div><div class="contactbox"><small>E-mail</small><a href="mailto:j.h.servis@email.cz">j.h.servis@email.cz</a><small>Objednání</small><a class="btn" href="tel:+420721007887">Zavolat a objednat servis</a></div></div></div></section>
+  <section class="hero">
+    <div class="container">
+      <div class="hero-copy reveal">
+        <div class="hero-badge">● Autoservis & pneuservis • Olomouc</div>
+        <h1>Váš vůz.<br><em>Naše práce.</em></h1>
+        <p>Spolehlivý servis, pneuservis a diagnostika bez zbytečných řečí. Domluvte si termín a nechte starosti s autem na nás.</p>
+        <div class="actions">
+          <a class="btn" href="tel:+420721007887">Objednat servis →</a>
+          <a class="btn ghost" href="#sluzby">Prohlédnout služby</a>
+        </div>
+        <div class="hero-points">
+          <span><i></i> Osobní přístup</span>
+          <span><i></i> Olomouc – Hodolany</span>
+          <span><i></i> Servis osobních vozů</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="container quick reveal">
+    <div class="quick-grid">
+      <div class="quick-item">
+        <small>Adresa</small>
+        <strong>Tyršova 613/4, Olomouc</strong>
+      </div>
+      <div class="quick-item">
+        <small>Telefon</small>
+        <strong><a href="tel:+420721007887">+420 721 007 887</a></strong>
+      </div>
+      <div class="quick-item">
+        <small>Objednání</small>
+        <strong><a href="tel:+420721007887">Zavolat a domluvit termín →</a></strong>
+      </div>
+    </div>
+  </div>
+
+  <section id="sluzby">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="kicker">Služby</div>
+        <h2>Všechno důležité pro vaše auto.</h2>
+        <p>Od běžné údržby po hledání závad. Přehledně, profesionálně a na jednom místě.</p>
+      </div>
+      <div class="service-grid">
+        <article class="service reveal">
+          <div class="icon">🔧</div>
+          <h3>Autoservis</h3>
+          <p>Běžná údržba, opravy a servisní práce pro osobní automobily.</p>
+        </article>
+        <article class="service reveal">
+          <div class="icon">🛞</div>
+          <h3>Pneuservis</h3>
+          <p>Přezutí, servis pneumatik a práce spojené s koly vašeho vozu.</p>
+        </article>
+        <article class="service reveal">
+          <div class="icon">⌁</div>
+          <h3>Diagnostika</h3>
+          <p>Vyhledání závad pomocí diagnostiky a kontrola elektroniky vozu.</p>
+        </article>
+        <article class="service reveal">
+          <div class="icon">⚙</div>
+          <h3>Údržba</h3>
+          <p>Servisní práce, které pomohou udržet auto připravené na další kilometry.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="proc">
+    <div class="container split">
+      <div class="feature-image reveal">
+        <img src="https://images.unsplash.com/photo-1486006920555-c77dcf18193c?auto=format&fit=crop&w=1400&q=85" alt="Servis automobilu v dílně" loading="lazy">
+      </div>
+      <div class="feature-copy reveal">
+        <div class="kicker">Proč J-H Autoservis</div>
+        <h2>Bez zbytečných řečí. Prostě dobře odvedená práce.</h2>
+        <p>Potřebujete auto opravit, zkontrolovat nebo připravit na další cestu? Ozvěte se a společně domluvíme, co je potřeba.</p>
+        <div class="checks">
+          <div class="check"><b>✓</b><span>Osobní přístup a přímá domluva.</span></div>
+          <div class="check"><b>✓</b><span>Autoservis a pneuservis na jednom místě.</span></div>
+          <div class="check"><b>✓</b><span>Olomouc – Hodolany.</span></div>
+          <div class="check"><b>✓</b><span>Jednoduché objednání po telefonu.</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="galerie">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="kicker">Galerie</div>
+        <h2>Práce, která je vidět.</h2>
+        <p>Pro skutečnou verzi webu sem můžeme vložit vlastní fotky dílny, techniky a hotových zakázek.</p>
+      </div>
+      <div class="gallery">
+        <div class="gallery-main reveal">
+          <img src="https://images.unsplash.com/photo-1493238792000-8113da705763?auto=format&fit=crop&w=1800&q=85" alt="Automobil v servisu" loading="lazy">
+        </div>
+        <div class="gallery-side">
+          <img class="reveal" src="https://images.unsplash.com/photo-1489824904134-891ab64532f1?auto=format&fit=crop&w=1000&q=85" alt="Automobil" loading="lazy">
+          <img class="reveal" src="https://images.unsplash.com/photo-1517524008697-84bbe3c3fd98?auto=format&fit=crop&w=1000&q=85" alt="Detail automobilu" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="container">
+      <div class="cta reveal">
+        <div class="kicker" style="color:#fff">Máte problém s autem?</div>
+        <h2>Nechte starosti na nás.</h2>
+        <p>Zavolejte a domluvte si termín servisu. Rychlá cesta k tomu, aby bylo vaše auto zase v pořádku.</p>
+        <a class="btn" href="tel:+420721007887">+420 721 007 887 →</a>
+      </div>
+    </div>
+  </section>
+
+  <section id="kontakt">
+    <div class="container">
+      <div class="section-head reveal">
+        <div class="kicker">Kontakt</div>
+        <h2>Najdete nás v Olomouci.</h2>
+        <p>Vše potřebné máte na jednom místě. Kliknutím na adresu otevřete mapu.</p>
+      </div>
+      <div class="contact-wrap">
+        <div class="contact-card reveal">
+          <h3>J-H Autoservis</h3>
+          <div class="contact-row">
+            <small>Adresa</small>
+            <a href="https://www.google.com/maps/search/?api=1&query=Tyr%C5%A1ova%20613%2F4%2C%20Olomouc" target="_blank" rel="noopener">Tyršova 613/4<br>779 00 Olomouc – Hodolany ↗</a>
+          </div>
+          <div class="contact-row">
+            <small>Telefon</small>
+            <a href="tel:+420721007887">+420 721 007 887</a>
+          </div>
+          <div class="contact-row">
+            <small>E-mail</small>
+            <a href="mailto:j.h.servis@email.cz">j.h.servis@email.cz</a>
+          </div>
+          <div class="contact-row">
+            <small>Objednání</small>
+            <a href="tel:+420721007887">Zavolat a domluvit termín →</a>
+          </div>
+        </div>
+        <div class="map reveal">
+          <div class="map-box">
+            <strong>J-H Autoservis • Hodolany</strong>
+            <p>Tyršova 613/4, 779 00 Olomouc</p>
+            <a class="btn" href="https://www.google.com/maps/search/?api=1&query=Tyr%C5%A1ova%20613%2F4%2C%20Olomouc" target="_blank" rel="noopener">Otevřít v Mapách →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </main>
-<footer><div class="wrap">© J-H Autoservis • Demo návrh webu</div></footer>
-<a class="float-call" href="tel:+420721007887" aria-label="Zavolat">☎</a></body>
+
+<footer>
+  <div class="container footer-inner">
+    <span>© J-H Autoservis</span>
+    <span>Autoservis & pneuservis • Olomouc</span>
+  </div>
+</footer>
+
+<a class="float-call" href="tel:+420721007887" aria-label="Zavolat">☎</a>
+
+<script>
+const observer = new IntersectionObserver((entries)=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
+</script>
+</body>
 </html>
